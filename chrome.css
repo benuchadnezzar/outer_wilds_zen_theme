@@ -117,6 +117,146 @@
    5. URL Bar
    ------------------------------------------------------------ */
 
+/* Main URL bar surface */
+#urlbar-background {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 78%,
+    transparent
+  ) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-border) 76%, transparent) !important;
+
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--ow-nomai) 4%, transparent) !important;
+
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease !important;
+}
+
+/* Focused / expanded URL bar:
+ * campfire orange becomes the primary instrument-light signal.
+ */
+#urlbar[focused="true"] #urlbar-background,
+#urlbar[open] #urlbar-background {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 88%,
+    transparent
+  ) !important;
+
+  border-color: color-mix(
+    in srgb,
+    var(--ow-campfire) 62%,
+    transparent
+  ) !important;
+
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ow-gold) 10%, transparent),
+    0 0 10px color-mix(in srgb, var(--ow-campfire) 14%, transparent),
+    0 0 18px color-mix(in srgb, var(--ow-nomai) 5%, transparent) !important;
+}
+
+/* URL text */
+#urlbar-input {
+  color: var(--ow-text) !important;
+  caret-color: var(--ow-campfire) !important;
+}
+
+/* Placeholder text */
+#urlbar-input::placeholder {
+  color: var(--ow-text-muted) !important;
+  opacity: 0.78 !important;
+}
+
+/* Domain / secondary URL text.
+ * Firefox/Zen frequently dims parts of the URL; keep that readable.
+ */
+#urlbar .urlbarView-url,
+#urlbar .urlbarView-action {
+  color: var(--ow-text-muted) !important;
+}
+
+/* Search/result titles */
+#urlbar .urlbarView-title {
+  color: var(--ow-text) !important;
+}
+
+/* Highlighted result */
+#urlbar .urlbarView-row[selected] {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ow-campfire) 13%, transparent),
+    color-mix(in srgb, var(--ow-nomai) 7%, transparent)
+  ) !important;
+
+  color: var(--ow-text) !important;
+}
+
+/* Results panel itself */
+#urlbar .urlbarView {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 92%,
+    transparent
+  ) !important;
+
+  border-top: 1px solid color-mix(in srgb, var(--ow-border) 70%, transparent) !important;
+}
+
+/* URL-bar icons:
+ * use parchment by default rather than cold white.
+ */
+#urlbar toolbarbutton,
+#urlbar .urlbar-icon,
+#urlbar .urlbar-page-action {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+}
+
+/* Hovered URL-bar controls */
+#urlbar toolbarbutton:hover,
+#urlbar .urlbar-page-action:hover {
+  color: var(--ow-gold) !important;
+}
+
+/* Identity / security icon:
+ * give it a faint Quantum-cyan character without making it loud.
+ */
+#identity-icon,
+#identity-permission-box {
+  color: var(--ow-quantum) !important;
+  fill: currentColor !important;
+}
+
+/* Tracking protection / security affordances */
+#tracking-protection-icon-container:hover,
+#identity-box:hover {
+  background: color-mix(in srgb, var(--ow-quantum) 8%, transparent) !important;
+}
+
+/* Keep toolbar chrome around the URL bar transparent enough
+ * to preserve Transparent Zen's glass treatment.
+ */
+#nav-bar {
+  background: transparent !important;
+}
+
+/* Optional tiny "instrument glow" when hovering the URL bar
+ * without focusing it.
+ */
+#urlbar:not([focused="true"]):hover #urlbar-background {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-gold) 24%,
+    var(--ow-border)
+  ) !important;
+
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ow-gold) 4%, transparent) !important;
+}
+
 /* ------------------------------------------------------------
    6. Panels / Menus
    ------------------------------------------------------------ */
