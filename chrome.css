@@ -1,0 +1,134 @@
+/* ============================================================
+   OUTER WILDS — ZEN OVERLAY
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Palette
+   ------------------------------------------------------------ */
+
+:root {
+  --ow-space: #0d0e1a;
+  --ow-space-alt: #15172a;
+  --ow-space-highlight: #1c1f38;
+  --ow-border: #242847;
+
+  --ow-text: #e8dcc8;
+  --ow-text-muted: #a7a8bd;
+  --ow-text-dim: #5c6178;
+
+  --ow-campfire: #e8823c;
+  --ow-campfire-dim: #c76a2e;
+  --ow-supernova: #e8563e;
+  --ow-gold: #d9a441;
+
+  --ow-giants-deep: #5fb98c;
+  --ow-quantum: #5ec9c9;
+  --ow-brittle-hollow: #6ab0f3;
+  --ow-nomai: #a78bd9;
+  --ow-nomai-dim: #8b6bd6;
+}
+
+/* ------------------------------------------------------------
+   2. Global UI
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   3. Sidebar
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   4. Tabs
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs .tabbrowser-tab > .tab-stack > .tab-background {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:not(:is([selected], [visuallyselected], [multiselected]))
+  > .tab-stack
+  > .tab-background {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 28%,
+    transparent
+  ) !important;
+
+  border: 1px solid transparent !important;
+  box-shadow: none !important;
+  opacity: 0.84 !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
+  > .tab-stack
+  > .tab-background {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ow-campfire) 17%, transparent),
+    color-mix(in srgb, var(--ow-gold) 7%, transparent)
+  ) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-campfire) 58%, transparent) !important;
+
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ow-gold) 8%, transparent),
+    0 0 12px color-mix(in srgb, var(--ow-campfire) 12%, transparent) !important;
+
+  opacity: 1 !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
+  .tab-label {
+  color: var(--ow-text) !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:not(:is([selected], [visuallyselected], [multiselected]))
+  .tab-label {
+  color: var(--ow-text-muted) !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:not(
+    :is([selected], [visuallyselected], [multiselected])
+  ):hover
+  > .tab-stack
+  > .tab-background {
+  background: color-mix(
+    in srgb,
+    var(--ow-campfire) 7%,
+    var(--ow-space-alt) 24%
+  ) !important;
+
+  border-color: color-mix(
+    in srgb,
+    var(--ow-campfire) 18%,
+    transparent
+  ) !important;
+}
+
+/* ------------------------------------------------------------
+   5. URL Bar
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   6. Panels / Menus
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   7. Workspace UI
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   8. Neo-Zen compatibility
+   ------------------------------------------------------------ */
+
+/* ------------------------------------------------------------
+   9. Transparent Zen compatibility
+   ------------------------------------------------------------ */
