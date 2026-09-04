@@ -32,6 +32,227 @@
    2. Global UI
    ------------------------------------------------------------ */
 
+#navigator-toolbox,
+#nav-bar,
+#PersonalToolbar {
+  background: transparent !important;
+}
+
+/* ------------------------------------------------------------
+   Base toolbar button treatment
+   ------------------------------------------------------------ */
+
+#navigator-toolbox toolbarbutton,
+#nav-bar toolbarbutton,
+#PersonalToolbar toolbarbutton {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 120ms ease !important;
+}
+
+/* Ordinary hover */
+#navigator-toolbox toolbarbutton:hover,
+#nav-bar toolbarbutton:hover,
+#PersonalToolbar toolbarbutton:hover {
+  color: var(--ow-gold) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 8%, transparent) !important;
+
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--ow-gold) 10%, transparent) !important;
+}
+
+/* Pressed / active controls */
+#navigator-toolbox
+  toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]),
+#nav-bar toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]),
+#PersonalToolbar
+  toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]) {
+  color: var(--ow-campfire) !important;
+
+  background: color-mix(
+    in srgb,
+    var(--ow-campfire) 11%,
+    transparent
+  ) !important;
+
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ow-campfire) 20%, transparent),
+    0 0 7px color-mix(in srgb, var(--ow-campfire) 9%, transparent) !important;
+}
+
+/* Disabled controls */
+#navigator-toolbox toolbarbutton[disabled],
+#nav-bar toolbarbutton[disabled],
+#PersonalToolbar toolbarbutton[disabled] {
+  color: var(--ow-text-dim) !important;
+  opacity: 0.48 !important;
+}
+
+/* ------------------------------------------------------------
+   Back / forward / reload / stop
+   ------------------------------------------------------------ */
+
+#back-button,
+#forward-button,
+#reload-button,
+#stop-button {
+  color: var(--ow-text-muted) !important;
+}
+
+#back-button:hover,
+#forward-button:hover,
+#reload-button:hover,
+#stop-button:hover {
+  color: var(--ow-gold) !important;
+}
+
+#reload-button[displaystop],
+#stop-button:not([hidden]) {
+  color: var(--ow-quantum) !important;
+}
+
+/* ------------------------------------------------------------
+   Home button
+   ------------------------------------------------------------ */
+
+#home-button:hover {
+  color: var(--ow-campfire) !important;
+}
+
+/* ------------------------------------------------------------
+   Extensions button
+   ------------------------------------------------------------ */
+
+#unified-extensions-button {
+  color: var(--ow-text-muted) !important;
+}
+
+#unified-extensions-button:hover {
+  color: var(--ow-nomai) !important;
+
+  background: color-mix(in srgb, var(--ow-nomai) 8%, transparent) !important;
+
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--ow-nomai) 12%, transparent) !important;
+}
+
+/* If the extension panel is open */
+#unified-extensions-button[open] {
+  color: var(--ow-campfire) !important;
+}
+
+/* ------------------------------------------------------------
+   Sidebar / vertical-tabs controls
+   ------------------------------------------------------------ */
+
+#sidebar-button,
+#sidebar-revamp-button,
+#zen-sidebar-top-buttons toolbarbutton {
+  color: var(--ow-text-muted) !important;
+}
+
+#sidebar-button:hover,
+#sidebar-revamp-button:hover,
+#zen-sidebar-top-buttons toolbarbutton:hover {
+  color: var(--ow-gold) !important;
+}
+
+/* ------------------------------------------------------------
+   Bookmarks toolbar
+   ------------------------------------------------------------ */
+
+#PersonalToolbar .bookmark-item {
+  color: var(--ow-text-muted) !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease !important;
+}
+
+#PersonalToolbar .bookmark-item:hover {
+  color: var(--ow-text) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 7%, transparent) !important;
+}
+
+#PersonalToolbar .bookmark-item[container] {
+  color: color-mix(
+    in srgb,
+    var(--ow-text-muted) 84%,
+    var(--ow-nomai)
+  ) !important;
+}
+
+/* ------------------------------------------------------------
+   Overflow / more-tools buttons
+   ------------------------------------------------------------ */
+
+#nav-bar-overflow-button,
+#PanelUI-menu-button {
+  color: var(--ow-text-muted) !important;
+}
+
+#nav-bar-overflow-button:hover,
+#PanelUI-menu-button:hover {
+  color: var(--ow-gold) !important;
+}
+
+/* ------------------------------------------------------------
+   Window / titlebar controls
+   ------------------------------------------------------------ */
+
+.titlebar-button,
+.titlebar-buttonbox-container toolbarbutton {
+  opacity: 0.88 !important;
+}
+
+/* ------------------------------------------------------------
+   Toolbar separators
+   ------------------------------------------------------------ */
+
+#navigator-toolbox toolbarseparator,
+#nav-bar toolbarseparator,
+#PersonalToolbar toolbarseparator {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-nomai) 12%,
+    var(--ow-border)
+  ) !important;
+
+  opacity: 0.68 !important;
+}
+
+/* ------------------------------------------------------------
+   Focus-visible treatment
+   ------------------------------------------------------------ */
+
+#navigator-toolbox toolbarbutton:focus-visible,
+#nav-bar toolbarbutton:focus-visible,
+#PersonalToolbar toolbarbutton:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--ow-quantum) 72%, transparent) !important;
+
+  outline-offset: 2px !important;
+
+  box-shadow: 0 0 7px color-mix(in srgb, var(--ow-quantum) 13%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Lightweight physical press feedback
+   ------------------------------------------------------------ */
+
+#navigator-toolbox toolbarbutton:active,
+#nav-bar toolbarbutton:active,
+#PersonalToolbar toolbarbutton:active {
+  transform: translateY(1px) !important;
+}
+
 /* ------------------------------------------------------------
    3. Sidebar
    ------------------------------------------------------------ */
