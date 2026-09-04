@@ -32,68 +32,68 @@
    2. Global UI
    ------------------------------------------------------------ */
 
-#navigator-toolbox,
-#nav-bar,
-#PersonalToolbar {
-  background: transparent !important;
-}
-
+/* #navigator-toolbox, */
+/* #nav-bar, */
+/* #PersonalToolbar { */
+/*   background: transparent !important; */
+/* } */
+/**/
 /* ------------------------------------------------------------
    Base toolbar button treatment
    ------------------------------------------------------------ */
 
-#navigator-toolbox toolbarbutton,
-#nav-bar toolbarbutton,
-#PersonalToolbar toolbarbutton {
-  color: var(--ow-text-muted) !important;
-  fill: currentColor !important;
-
-  transition:
-    color 140ms ease,
-    background-color 140ms ease,
-    border-color 140ms ease,
-    box-shadow 140ms ease,
-    transform 120ms ease !important;
-}
-
+/* #navigator-toolbox toolbarbutton, */
+/* #nav-bar toolbarbutton, */
+/* #PersonalToolbar toolbarbutton { */
+/*   color: var(--ow-text-muted) !important; */
+/*   fill: currentColor !important; */
+/**/
+/*   transition: */
+/*     color 140ms ease, */
+/*     background-color 140ms ease, */
+/*     border-color 140ms ease, */
+/*     box-shadow 140ms ease, */
+/*     transform 120ms ease !important; */
+/* } */
+/**/
 /* Ordinary hover */
-#navigator-toolbox toolbarbutton:hover,
-#nav-bar toolbarbutton:hover,
-#PersonalToolbar toolbarbutton:hover {
-  color: var(--ow-gold) !important;
-
-  background: color-mix(in srgb, var(--ow-gold) 8%, transparent) !important;
-
-  box-shadow: inset 0 0 0 1px
-    color-mix(in srgb, var(--ow-gold) 10%, transparent) !important;
-}
+/* #navigator-toolbox toolbarbutton:hover, */
+/* #nav-bar toolbarbutton:hover, */
+/* #PersonalToolbar toolbarbutton:hover { */
+/*   color: var(--ow-gold) !important; */
+/**/
+/*   background: color-mix(in srgb, var(--ow-gold) 8%, transparent) !important; */
+/**/
+/*   box-shadow: inset 0 0 0 1px */
+/*     color-mix(in srgb, var(--ow-gold) 10%, transparent) !important; */
+/* } */
 
 /* Pressed / active controls */
-#navigator-toolbox
-  toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]),
-#nav-bar toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]),
-#PersonalToolbar
-  toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]) {
-  color: var(--ow-campfire) !important;
-
-  background: color-mix(
-    in srgb,
-    var(--ow-campfire) 11%,
-    transparent
-  ) !important;
-
-  box-shadow:
-    inset 0 0 0 1px color-mix(in srgb, var(--ow-campfire) 20%, transparent),
-    0 0 7px color-mix(in srgb, var(--ow-campfire) 9%, transparent) !important;
-}
+/* #navigator-toolbox */
+/*   toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]), */
+/* #nav-bar toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]), */
+/* #PersonalToolbar */
+/*   toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]) { */
+/*   color: var(--ow-campfire) !important; */
+/**/
+/*   background: color-mix( */
+/*     in srgb, */
+/*     var(--ow-campfire) 11%, */
+/*     transparent */
+/*   ) !important; */
+/**/
+/*   box-shadow: */
+/*     inset 0 0 0 1px color-mix(in srgb, var(--ow-campfire) 20%, transparent), */
+/*     0 0 7px color-mix(in srgb, var(--ow-campfire) 9%, transparent) !important; */
+/* } */
 
 /* Disabled controls */
-#navigator-toolbox toolbarbutton[disabled],
-#nav-bar toolbarbutton[disabled],
-#PersonalToolbar toolbarbutton[disabled] {
-  color: var(--ow-text-dim) !important;
-  opacity: 0.48 !important;
-}
+/* #navigator-toolbox toolbarbutton[disabled], */
+/* #nav-bar toolbarbutton[disabled], */
+/* #PersonalToolbar toolbarbutton[disabled] { */
+/*   color: var(--ow-text-dim) !important; */
+/*   opacity: 0.48 !important; */
+/* } */
 
 /* ------------------------------------------------------------
    Back / forward / reload / stop
@@ -233,26 +233,26 @@
    Focus-visible treatment
    ------------------------------------------------------------ */
 
-#navigator-toolbox toolbarbutton:focus-visible,
-#nav-bar toolbarbutton:focus-visible,
-#PersonalToolbar toolbarbutton:focus-visible {
-  outline: 1px solid color-mix(in srgb, var(--ow-quantum) 72%, transparent) !important;
-
-  outline-offset: 2px !important;
-
-  box-shadow: 0 0 7px color-mix(in srgb, var(--ow-quantum) 13%, transparent) !important;
-}
-
+/* #navigator-toolbox toolbarbutton:focus-visible, */
+/* #nav-bar toolbarbutton:focus-visible, */
+/* #PersonalToolbar toolbarbutton:focus-visible { */
+/*   outline: 1px solid color-mix(in srgb, var(--ow-quantum) 72%, transparent) !important; */
+/**/
+/*   outline-offset: 2px !important; */
+/**/
+/*   box-shadow: 0 0 7px color-mix(in srgb, var(--ow-quantum) 13%, transparent) !important; */
+/* } */
+/**/
 /* ------------------------------------------------------------
    Lightweight physical press feedback
    ------------------------------------------------------------ */
 
-#navigator-toolbox toolbarbutton:active,
-#nav-bar toolbarbutton:active,
-#PersonalToolbar toolbarbutton:active {
-  transform: translateY(1px) !important;
-}
-
+/* #navigator-toolbox toolbarbutton:active, */
+/* #nav-bar toolbarbutton:active, */
+/* #PersonalToolbar toolbarbutton:active { */
+/*   transform: translateY(1px) !important; */
+/* } */
+/**/
 /* ------------------------------------------------------------
    3. Sidebar
    ------------------------------------------------------------ */
