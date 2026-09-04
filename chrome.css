@@ -726,7 +726,7 @@
    ------------------------------------------------------------ */
 
 /* Force Firefox/Zen context menus into the dark browser-chrome scheme */
-menupopup {
+#mainPopupSet menupopup {
   color-scheme: dark !important;
 
   --menu-color: var(--ow-text) !important;
