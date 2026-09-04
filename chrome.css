@@ -725,6 +725,45 @@
    Generic popup / panel surfaces
    ------------------------------------------------------------ */
 
+/* Force Firefox/Zen context menus into the dark browser-chrome scheme */
+menupopup {
+  color-scheme: dark !important;
+
+  --menu-color: var(--ow-text) !important;
+
+  --menu-background-color: color-mix(
+    in srgb,
+    var(--ow-space-alt) 94%,
+    transparent
+  ) !important;
+
+  --menu-border-color: color-mix(
+    in srgb,
+    var(--ow-nomai) 16%,
+    var(--ow-border)
+  ) !important;
+
+  --menuitem-hover-background-color: color-mix(
+    in srgb,
+    var(--ow-campfire) 10%,
+    transparent
+  ) !important;
+}
+
+/* Explicitly inherit those menu colors */
+menupopup > menu,
+menupopup > menuitem {
+  color: var(--menu-color) !important;
+}
+
+/* Hover / keyboard-active row */
+menupopup > menu[_moz-menuactive="true"],
+menupopup > menuitem[_moz-menuactive="true"] {
+  color: var(--ow-text) !important;
+
+  background: var(--menuitem-hover-background-color) !important;
+}
+
 menupopup,
 panel,
 panelview,
