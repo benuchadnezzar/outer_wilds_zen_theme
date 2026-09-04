@@ -501,6 +501,331 @@
    ------------------------------------------------------------ */
 
 /* ------------------------------------------------------------
+   Generic popup / panel surfaces
+   ------------------------------------------------------------ */
+
+menupopup,
+panel,
+panelview,
+.panel-subview-body,
+#appMenu-popup,
+#unified-extensions-panel,
+#downloadsPanel,
+#editBookmarkPanel,
+#identity-popup,
+#notification-popup {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 94%,
+    transparent
+  ) !important;
+
+  color: var(--ow-text) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-nomai) 14%, var(--ow-border)) !important;
+
+  box-shadow:
+    0 10px 30px color-mix(in srgb, black 34%, transparent),
+    0 0 14px color-mix(in srgb, var(--ow-nomai) 5%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Menu / panel text
+   ------------------------------------------------------------ */
+
+menu,
+menuitem,
+.subviewbutton,
+.panel-info-button,
+#downloadsPanel,
+#identity-popup {
+  color: var(--ow-text-muted) !important;
+}
+
+/* Stronger text where Firefox marks labels/titles separately */
+menuitem > label,
+menu > label,
+.subviewbutton > label,
+.panel-header,
+.panel-header > label {
+  color: var(--ow-text) !important;
+}
+
+/* ------------------------------------------------------------
+   Hovered menu rows
+   ------------------------------------------------------------ */
+
+menu[_moz-menuactive="true"],
+menuitem[_moz-menuactive="true"],
+.subviewbutton:hover,
+.panel-info-button:hover {
+  color: var(--ow-text) !important;
+
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ow-campfire) 9%, transparent),
+    color-mix(in srgb, var(--ow-gold) 5%, transparent)
+  ) !important;
+
+  box-shadow: inset 2px 0 0
+    color-mix(in srgb, var(--ow-campfire) 58%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Active / checked menu items
+   ------------------------------------------------------------ */
+
+menuitem[checked="true"],
+menuitem[type="checkbox"][checked="true"],
+menuitem[type="radio"][checked="true"],
+.subviewbutton[checked="true"],
+.subviewbutton[aria-pressed="true"] {
+  color: var(--ow-campfire) !important;
+
+  background: color-mix(
+    in srgb,
+    var(--ow-campfire) 10%,
+    transparent
+  ) !important;
+}
+
+/* ------------------------------------------------------------
+   Disabled rows
+   ------------------------------------------------------------ */
+
+menu[disabled="true"],
+menuitem[disabled="true"],
+.subviewbutton[disabled="true"] {
+  color: var(--ow-text-dim) !important;
+  opacity: 0.72 !important;
+}
+
+/* ------------------------------------------------------------
+   Separators
+   ------------------------------------------------------------ */
+
+menuseparator,
+toolbarseparator,
+.panel-subview-body > toolbarseparator,
+#appMenu-popup toolbarseparator {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-nomai) 14%,
+    var(--ow-border)
+  ) !important;
+
+  opacity: 0.72 !important;
+}
+
+/* ------------------------------------------------------------
+   Panel headers
+   ------------------------------------------------------------ */
+
+.panel-header,
+.panel-header > label,
+#appMenu-popup .panel-header {
+  color: var(--ow-text) !important;
+}
+
+/* Back buttons in nested panels */
+.panel-header > toolbarbutton,
+.subviewbutton-back {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+}
+
+.panel-header > toolbarbutton:hover,
+.subviewbutton-back:hover {
+  color: var(--ow-gold) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 8%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Extension panel
+   ------------------------------------------------------------ */
+
+#unified-extensions-panel .unified-extensions-item {
+  color: var(--ow-text-muted) !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease !important;
+}
+
+#unified-extensions-panel .unified-extensions-item:hover {
+  color: var(--ow-text) !important;
+
+  background: color-mix(in srgb, var(--ow-campfire) 7%, transparent) !important;
+}
+
+/* Extension action buttons */
+#unified-extensions-panel toolbarbutton {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+}
+
+#unified-extensions-panel toolbarbutton:hover {
+  color: var(--ow-gold) !important;
+}
+
+/* ------------------------------------------------------------
+   Downloads
+   ------------------------------------------------------------ */
+
+#downloadsPanel .downloadMainArea,
+#downloadsPanel .downloadButton {
+  color: var(--ow-text-muted) !important;
+}
+
+#downloadsPanel .downloadMainArea:hover,
+#downloadsPanel .downloadButton:hover {
+  color: var(--ow-text) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 7%, transparent) !important;
+}
+
+/* Download progress */
+#downloadsPanel progress,
+#downloadsPanel .downloadProgress {
+  accent-color: var(--ow-quantum) !important;
+}
+
+/* ------------------------------------------------------------
+   Bookmark / edit panels
+   ------------------------------------------------------------ */
+
+#editBookmarkPanel input,
+#editBookmarkPanel textbox,
+#editBookmarkPanel menulist {
+  color: var(--ow-text) !important;
+
+  background: color-mix(in srgb, var(--ow-space) 68%, transparent) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-border) 82%, transparent) !important;
+}
+
+/* Focused fields */
+#editBookmarkPanel input:focus,
+#editBookmarkPanel textbox:focus,
+#editBookmarkPanel menulist:focus {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-campfire) 55%,
+    transparent
+  ) !important;
+
+  box-shadow: 0 0 8px color-mix(in srgb, var(--ow-campfire) 10%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Identity / permissions popup
+   ------------------------------------------------------------ */
+
+#identity-popup {
+  color: var(--ow-text-muted) !important;
+}
+
+/* Security / informational state */
+#identity-popup-securityView,
+#identity-popup-mainView {
+  color: var(--ow-text-muted) !important;
+}
+
+/* Use cyan for security/information affordances */
+#identity-popup toolbarbutton,
+#identity-popup .identity-popup-security-connection {
+  color: var(--ow-quantum) !important;
+  fill: currentColor !important;
+}
+
+/* ------------------------------------------------------------
+   Buttons inside panels
+   ------------------------------------------------------------ */
+
+panel button,
+panel toolbarbutton,
+panel .subviewbutton {
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease !important;
+}
+
+panel button:hover,
+panel toolbarbutton:hover {
+  color: var(--ow-gold) !important;
+}
+
+/* Primary/default buttons */
+panel button[default="true"],
+panel .primary {
+  color: var(--ow-space) !important;
+
+  background: linear-gradient(
+    180deg,
+    var(--ow-gold),
+    var(--ow-campfire)
+  ) !important;
+
+  border-color: var(--ow-campfire-dim) !important;
+}
+
+/* ------------------------------------------------------------
+   Destructive actions
+   ------------------------------------------------------------ */
+
+menuitem[data-l10n-id*="delete"],
+menuitem[data-l10n-id*="remove"],
+menuitem[data-l10n-id*="forget"],
+.subviewbutton[data-l10n-id*="delete"],
+.subviewbutton[data-l10n-id*="remove"] {
+  color: var(--ow-supernova) !important;
+}
+
+/* Destructive hover */
+menuitem[data-l10n-id*="delete"][_moz-menuactive="true"],
+menuitem[data-l10n-id*="remove"][_moz-menuactive="true"],
+menuitem[data-l10n-id*="forget"][_moz-menuactive="true"],
+.subviewbutton[data-l10n-id*="delete"]:hover,
+.subviewbutton[data-l10n-id*="remove"]:hover {
+  background: color-mix(
+    in srgb,
+    var(--ow-supernova) 10%,
+    transparent
+  ) !important;
+
+  box-shadow: inset 2px 0 0
+    color-mix(in srgb, var(--ow-supernova) 58%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Context menus specifically
+   ------------------------------------------------------------ */
+
+menupopup > menu,
+menupopup > menuitem {
+  min-height: 26px !important;
+}
+
+menupopup > menu[_moz-menuactive="true"],
+menupopup > menuitem[_moz-menuactive="true"] {
+  border-inline-start: 2px solid
+    color-mix(in srgb, var(--ow-campfire) 62%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Scrollbars inside panels
+   ------------------------------------------------------------ */
+
+panel,
+menupopup {
+  scrollbar-color: color-mix(in srgb, var(--ow-nomai) 32%, transparent)
+    transparent !important;
+}
+
+/* ------------------------------------------------------------
    7. Workspace UI
    ------------------------------------------------------------ */
 
