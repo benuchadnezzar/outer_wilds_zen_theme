@@ -36,6 +36,257 @@
    3. Sidebar
    ------------------------------------------------------------ */
 
+#sidebar-box,
+#sidebar-main,
+#navigator-toolbox {
+  background: transparent !important;
+}
+
+/* ------------------------------------------------------------
+   Sidebar tab text
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs .tabbrowser-tab .tab-label {
+  color: var(--ow-text-muted) !important;
+
+  transition:
+    color 140ms ease,
+    opacity 140ms ease !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
+  .tab-label {
+  color: var(--ow-text) !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:not(
+    :is([selected], [visuallyselected], [multiselected])
+  ):hover
+  .tab-label {
+  color: color-mix(in srgb, var(--ow-text) 78%, var(--ow-gold)) !important;
+}
+
+/* ------------------------------------------------------------
+   Tab icons / favicons
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs .tab-close-button,
+#tabbrowser-tabs .tab-icon-overlay {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease !important;
+}
+
+#tabbrowser-tabs .tab-close-button:hover {
+  color: var(--ow-gold) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 10%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Inactive tab surface
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs
+  .tabbrowser-tab:not(:is([selected], [visuallyselected], [multiselected]))
+  > .tab-stack
+  > .tab-background {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 22%,
+    transparent
+  ) !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:not(
+    :is([selected], [visuallyselected], [multiselected])
+  ):hover
+  > .tab-stack
+  > .tab-background {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ow-gold) 6%, transparent),
+    color-mix(in srgb, var(--ow-space-alt) 26%, transparent)
+  ) !important;
+
+  border-color: color-mix(in srgb, var(--ow-gold) 15%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Selected tab reinforcement
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs
+  .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
+  > .tab-stack {
+  position: relative !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab:is([selected], [visuallyselected], [multiselected])
+  > .tab-stack::before {
+  content: "";
+
+  position: absolute;
+  z-index: 3;
+
+  left: 2px;
+  top: 24%;
+  bottom: 24%;
+
+  width: 2px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, var(--ow-gold), var(--ow-campfire));
+
+  box-shadow: 0 0 6px color-mix(in srgb, var(--ow-campfire) 38%, transparent);
+
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   New-tab / sidebar controls
+   ------------------------------------------------------------ */
+
+#tabs-newtab-button,
+#new-tab-button,
+#vertical-tabs-newtab-button {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease !important;
+}
+
+#tabs-newtab-button:hover,
+#new-tab-button:hover,
+#vertical-tabs-newtab-button:hover {
+  color: var(--ow-gold) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 8%, transparent) !important;
+
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--ow-gold) 12%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Sidebar toolbar buttons
+   ------------------------------------------------------------ */
+
+#navigator-toolbox toolbarbutton,
+#sidebar-main toolbarbutton,
+#sidebar-box toolbarbutton {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    box-shadow 140ms ease !important;
+}
+
+#navigator-toolbox toolbarbutton:hover,
+#sidebar-main toolbarbutton:hover,
+#sidebar-box toolbarbutton:hover {
+  color: var(--ow-gold) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 7%, transparent) !important;
+}
+
+#navigator-toolbox
+  toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]),
+#sidebar-main toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]),
+#sidebar-box toolbarbutton:is([open], [checked="true"], [aria-pressed="true"]) {
+  color: var(--ow-campfire) !important;
+
+  background: color-mix(
+    in srgb,
+    var(--ow-campfire) 10%,
+    transparent
+  ) !important;
+
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--ow-campfire) 18%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Sidebar separators
+   ------------------------------------------------------------ */
+
+#sidebar-main toolbarseparator,
+#sidebar-box toolbarseparator,
+#navigator-toolbox toolbarseparator {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-nomai) 16%,
+    var(--ow-border)
+  ) !important;
+
+  opacity: 0.72 !important;
+}
+
+/* ------------------------------------------------------------
+   Pinned / Essential tabs
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs
+  .tabbrowser-tab[pinned]:not(:is([selected], [visuallyselected]))
+  > .tab-stack
+  > .tab-background {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-highlight) 24%,
+    transparent
+  ) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-nomai) 10%, transparent) !important;
+}
+
+#tabbrowser-tabs
+  .tabbrowser-tab[pinned]:not(:is([selected], [visuallyselected])):hover
+  > .tab-stack
+  > .tab-background {
+  border-color: color-mix(in srgb, var(--ow-nomai) 24%, transparent) !important;
+
+  box-shadow: 0 0 8px color-mix(in srgb, var(--ow-nomai) 8%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Attention / notification states
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs .tabbrowser-tab[attention] .tab-label,
+#tabbrowser-tabs .tabbrowser-tab[notselectedsinceload] .tab-label {
+  color: var(--ow-gold) !important;
+}
+
+/* ------------------------------------------------------------
+   Audio / media indicator
+   ------------------------------------------------------------ */
+
+#tabbrowser-tabs .tab-icon-overlay[soundplaying],
+#tabbrowser-tabs .tab-icon-overlay[muted] {
+  color: var(--ow-quantum) !important;
+}
+
+/* ------------------------------------------------------------
+   Subtle sidebar edge
+   ------------------------------------------------------------ */
+
+#sidebar-box {
+  border-inline-end: 1px solid
+    color-mix(in srgb, var(--ow-nomai) 10%, transparent) !important;
+}
+
 /* ------------------------------------------------------------
    4. Tabs
    ------------------------------------------------------------ */
@@ -136,9 +387,7 @@
     box-shadow 150ms ease !important;
 }
 
-/* Focused / expanded URL bar:
- * campfire orange becomes the primary instrument-light signal.
- */
+/* Focused / expanded URL bar */
 #urlbar[focused="true"] #urlbar-background,
 #urlbar[open] #urlbar-background {
   background: color-mix(
@@ -171,9 +420,7 @@
   opacity: 0.78 !important;
 }
 
-/* Domain / secondary URL text.
- * Firefox/Zen frequently dims parts of the URL; keep that readable.
- */
+/* Domain / secondary URL text */
 #urlbar .urlbarView-url,
 #urlbar .urlbarView-action {
   color: var(--ow-text-muted) !important;
@@ -206,9 +453,7 @@
   border-top: 1px solid color-mix(in srgb, var(--ow-border) 70%, transparent) !important;
 }
 
-/* URL-bar icons:
- * use parchment by default rather than cold white.
- */
+/* URL-bar icons: */
 #urlbar toolbarbutton,
 #urlbar .urlbar-icon,
 #urlbar .urlbar-page-action {
@@ -222,9 +467,7 @@
   color: var(--ow-gold) !important;
 }
 
-/* Identity / security icon:
- * give it a faint Quantum-cyan character without making it loud.
- */
+/* Identity / security icon: */
 #identity-icon,
 #identity-permission-box {
   color: var(--ow-quantum) !important;
@@ -237,16 +480,12 @@
   background: color-mix(in srgb, var(--ow-quantum) 8%, transparent) !important;
 }
 
-/* Keep toolbar chrome around the URL bar transparent enough
- * to preserve Transparent Zen's glass treatment.
- */
+/* Keep toolbar chrome around the URL bar transparent enough */
 #nav-bar {
   background: transparent !important;
 }
 
-/* Optional tiny "instrument glow" when hovering the URL bar
- * without focusing it.
- */
+/* Optional tiny "instrument glow" when hovering the URL bar */
 #urlbar:not([focused="true"]):hover #urlbar-background {
   border-color: color-mix(
     in srgb,
