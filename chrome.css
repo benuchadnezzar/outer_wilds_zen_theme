@@ -505,6 +505,232 @@
    ------------------------------------------------------------ */
 
 /* ------------------------------------------------------------
+   Workspace container
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button,
+.zen-workspace-button,
+.workspace-button {
+  color: var(--ow-text-muted) !important;
+  fill: currentColor !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease !important;
+}
+
+/* ------------------------------------------------------------
+   Ordinary workspace buttons
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button:not([active]):not([selected]),
+.zen-workspace-button:not([active]):not([selected]),
+.workspace-button:not([active]):not([selected]) {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 18%,
+    transparent
+  ) !important;
+
+  border: 1px solid transparent !important;
+
+  color: var(--ow-text-muted) !important;
+}
+
+/* ------------------------------------------------------------
+   Workspace hover
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button:hover,
+.zen-workspace-button:hover,
+.workspace-button:hover {
+  color: var(--ow-gold) !important;
+
+  background: color-mix(in srgb, var(--ow-gold) 7%, transparent) !important;
+
+  border-color: color-mix(in srgb, var(--ow-gold) 16%, transparent) !important;
+
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ow-gold) 5%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Active workspace
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button:is([active], [selected], [aria-selected="true"]),
+.zen-workspace-button:is([active], [selected], [aria-selected="true"]),
+.workspace-button:is([active], [selected], [aria-selected="true"]) {
+  color: var(--ow-text) !important;
+
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ow-campfire) 12%, transparent),
+    color-mix(in srgb, var(--ow-gold) 5%, transparent)
+  ) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-campfire) 40%, transparent) !important;
+
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--ow-gold) 6%, transparent),
+    0 0 8px color-mix(in srgb, var(--ow-campfire) 10%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Workspace icons
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button image,
+#zen-workspaces-button .toolbarbutton-icon,
+.zen-workspace-button image,
+.zen-workspace-button .toolbarbutton-icon,
+.workspace-button image,
+.workspace-button .toolbarbutton-icon {
+  color: inherit !important;
+  fill: currentColor !important;
+
+  opacity: 0.88 !important;
+
+  transition:
+    opacity 140ms ease,
+    filter 140ms ease !important;
+}
+
+/* Active workspace icon */
+#zen-workspaces-button:is([active], [selected], [aria-selected="true"]) image,
+#zen-workspaces-button:is([active], [selected], [aria-selected="true"])
+  .toolbarbutton-icon,
+.zen-workspace-button:is([active], [selected], [aria-selected="true"]) image,
+.zen-workspace-button:is([active], [selected], [aria-selected="true"])
+  .toolbarbutton-icon,
+.workspace-button:is([active], [selected], [aria-selected="true"]) image,
+.workspace-button:is([active], [selected], [aria-selected="true"])
+  .toolbarbutton-icon {
+  opacity: 1 !important;
+
+  filter: drop-shadow(
+    0 0 4px color-mix(in srgb, var(--ow-campfire) 28%, transparent)
+  ) !important;
+}
+
+/* ------------------------------------------------------------
+   Workspace labels
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button .toolbarbutton-text,
+.zen-workspace-button .toolbarbutton-text,
+.workspace-button .toolbarbutton-text {
+  color: inherit !important;
+}
+
+/* ------------------------------------------------------------
+   Workspace switcher / popup
+   ------------------------------------------------------------ */
+
+#zen-workspaces-panel,
+.zen-workspaces-panel,
+.workspace-switcher {
+  background: color-mix(
+    in srgb,
+    var(--ow-space-alt) 92%,
+    transparent
+  ) !important;
+
+  border: 1px solid color-mix(in srgb, var(--ow-nomai) 14%, var(--ow-border)) !important;
+
+  box-shadow:
+    0 8px 24px color-mix(in srgb, black 30%, transparent),
+    0 0 12px color-mix(in srgb, var(--ow-nomai) 5%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Workspace popup rows
+   ------------------------------------------------------------ */
+
+#zen-workspaces-panel .subviewbutton,
+.zen-workspaces-panel .subviewbutton,
+.workspace-switcher .subviewbutton {
+  color: var(--ow-text-muted) !important;
+
+  background: transparent !important;
+
+  transition:
+    color 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease !important;
+}
+
+#zen-workspaces-panel .subviewbutton:hover,
+.zen-workspaces-panel .subviewbutton:hover,
+.workspace-switcher .subviewbutton:hover {
+  color: var(--ow-text) !important;
+
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--ow-campfire) 9%, transparent),
+    color-mix(in srgb, var(--ow-nomai) 5%, transparent)
+  ) !important;
+}
+
+/* ------------------------------------------------------------
+   Current workspace marker
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button:is([active], [selected], [aria-selected="true"])::after,
+.zen-workspace-button:is([active], [selected], [aria-selected="true"])::after,
+.workspace-button:is([active], [selected], [aria-selected="true"])::after {
+  content: "";
+
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  right: 5px;
+  bottom: 5px;
+
+  border-radius: 50%;
+
+  background: var(--ow-campfire);
+
+  box-shadow: 0 0 5px color-mix(in srgb, var(--ow-campfire) 55%, transparent);
+
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   Workspace separators / structural chrome
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button + toolbarseparator,
+.zen-workspace-button + toolbarseparator,
+.workspace-button + toolbarseparator {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-nomai) 12%,
+    var(--ow-border)
+  ) !important;
+
+  opacity: 0.7 !important;
+}
+
+/* ------------------------------------------------------------
+   Workspace attention states
+   ------------------------------------------------------------ */
+
+#zen-workspaces-button[attention],
+.zen-workspace-button[attention],
+.workspace-button[attention] {
+  color: var(--ow-gold) !important;
+
+  border-color: color-mix(in srgb, var(--ow-gold) 28%, transparent) !important;
+
+  box-shadow: 0 0 7px color-mix(in srgb, var(--ow-gold) 12%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
    8. Neo-Zen compatibility
    ------------------------------------------------------------ */
 
