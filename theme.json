@@ -1,0 +1,10 @@
+{
+  "id": "outer_wilds_zen_theme",
+  "name": "Outer Wilds Zen Theme",
+  "description": "Outer Wilds-inspired visual overlay for Zen Browser.",
+  "version": "1.0.0",
+  "style": {
+    "chrome": "chrome.css",
+    "content": "userContent.css"
+  }
+}
