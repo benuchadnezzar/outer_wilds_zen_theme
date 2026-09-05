@@ -1,10 +1,16 @@
 {
-  "id": "outer_wilds_zen_theme",
+  "id": "outer-wilds-zen-theme",
+  "homepage": "https://github.com/benuchadnezzar/outer_wilds_zen_theme",
   "name": "Outer Wilds Zen Theme",
   "description": "Outer Wilds-inspired visual overlay for Zen Browser.",
+  "author": "benuchadnezzar",
   "version": "1.0.0",
+  "createdAt": "2026-09-01",
+  "updatedAt": "2026-09-04",
+  "tags": ["Outer Wilds", "Theme", "Chrome", "Content"],
   "style": {
     "chrome": "chrome.css",
     "content": "userContent.css"
-  }
+  },
+  "fork": ["zen"]
 }
