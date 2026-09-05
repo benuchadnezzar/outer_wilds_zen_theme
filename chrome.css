@@ -1316,9 +1316,143 @@ menupopup {
 }
 
 /* ------------------------------------------------------------
-   8. Neo-Zen compatibility
+   8. Polish / Edge States
    ------------------------------------------------------------ */
 
 /* ------------------------------------------------------------
-   9. Transparent Zen compatibility
+   Loading / progress states
    ------------------------------------------------------------ */
+
+#urlbar-searchmode-switcher,
+#urlbar-go-button,
+#reload-button[displaystop],
+#stop-button:not([hidden]),
+.tab-throbber[busy],
+.tab-throbber[progress] {
+  color: var(--ow-quantum) !important;
+  fill: currentColor !important;
+}
+
+/* Give loading indicators a faint glow rather than a hard neon edge. */
+.tab-throbber[busy],
+.tab-throbber[progress] {
+  filter: drop-shadow(
+    0 0 4px color-mix(in srgb, var(--ow-quantum) 30%, transparent)
+  ) !important;
+}
+
+/* ------------------------------------------------------------
+   Keyboard focus
+   ------------------------------------------------------------ */
+
+:where(
+  toolbarbutton,
+  button,
+  .subviewbutton,
+  .tabbrowser-tab,
+  #urlbar,
+  input,
+  textbox,
+  menulist
+):focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--ow-quantum) 72%, transparent) !important;
+
+  outline-offset: 2px !important;
+
+  box-shadow: 0 0 7px color-mix(in srgb, var(--ow-quantum) 12%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Notification / attention badges
+   ------------------------------------------------------------ */
+
+toolbarbutton .toolbarbutton-badge,
+.badge,
+.notification-badge,
+#unified-extensions-button[attention]::after {
+  background: var(--ow-gold) !important;
+  color: var(--ow-space) !important;
+
+  box-shadow: 0 0 6px color-mix(in srgb, var(--ow-gold) 28%, transparent) !important;
+}
+
+/* Tabs needing attention */
+.tabbrowser-tab[attention] .tab-label,
+.tabbrowser-tab[notselectedsinceload] .tab-label {
+  color: var(--ow-gold) !important;
+}
+
+/* ------------------------------------------------------------
+   Warning states
+   ------------------------------------------------------------ */
+
+:where(.warning, [class*="warning"], [data-l10n-id*="warning"]) {
+  color: var(--ow-gold) !important;
+}
+
+/* ------------------------------------------------------------
+   Error / destructive states
+   ------------------------------------------------------------ */
+
+:where(
+  .error,
+  [class*="error"],
+  [data-l10n-id*="error"],
+  [data-l10n-id*="delete"],
+  [data-l10n-id*="remove"]
+) {
+  color: var(--ow-supernova) !important;
+}
+
+/* ------------------------------------------------------------
+   Permission / security states
+   ------------------------------------------------------------ */
+
+#identity-box,
+#identity-icon,
+#tracking-protection-icon-container,
+.identity-popup-security-connection {
+  color: var(--ow-quantum) !important;
+  fill: currentColor !important;
+}
+
+/* ------------------------------------------------------------
+   Nomai structural accents
+   ------------------------------------------------------------ */
+
+toolbarseparator,
+menuseparator,
+.panel-arrowbox,
+.panel-header {
+  border-color: color-mix(
+    in srgb,
+    var(--ow-nomai) 14%,
+    var(--ow-border)
+  ) !important;
+}
+
+/* Very faint Nomai glow for secondary structural surfaces. */
+.panel-header,
+#urlbar .urlbarView {
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--ow-nomai) 4%, transparent) !important;
+}
+
+/* ------------------------------------------------------------
+   Selection / text highlight
+   ------------------------------------------------------------ */
+
+::selection {
+  background: color-mix(in srgb, var(--ow-gold) 72%, transparent) !important;
+
+  color: var(--ow-space) !important;
+}
+
+/* ------------------------------------------------------------
+   Disabled / unavailable states
+   ------------------------------------------------------------ */
+
+:where(toolbarbutton, button, menuitem, .subviewbutton)[disabled] {
+  color: var(--ow-text-dim) !important;
+  opacity: 0.5 !important;
+}
