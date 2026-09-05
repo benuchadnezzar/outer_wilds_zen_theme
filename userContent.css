@@ -1,3 +1,126 @@
-* {
-  outline: 4px solid magenta !important;
+/* ============================================================
+   OUTER WILDS — WEBSITE READABILITY LAYER
+   Conservative pass for low-contrast secondary text
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. Shared palette
+   ------------------------------------------------------------ */
+
+:root {
+  --ow-content-text: #e8dcc8;
+  --ow-content-muted: #a7a8bd;
+  --ow-content-dim: #7b8098;
+
+  --ow-content-link: #6ab0f3;
+  --ow-content-link-hover: #5ec9c9;
+
+  --ow-content-accent: #e8823c;
+  --ow-content-gold: #d9a441;
 }
+
+/* ------------------------------------------------------------
+   2. Google Search
+   ------------------------------------------------------------ */
+
+@-moz-document domain("google.com") {
+  /* Result descriptions */
+  .VwiC3b,
+  .yXK7lf,
+  .IsZvec {
+    color: var(--ow-content-muted) !important;
+  }
+
+  /* Result URLs / breadcrumb metadata */
+  .tjvcx,
+  .ylgVCe,
+  cite {
+    color: var(--ow-content-dim) !important;
+  }
+
+  /* Search result titles */
+  h3 {
+    color: var(--ow-content-link) !important;
+  }
+
+  h3:hover {
+    color: var(--ow-content-link-hover) !important;
+  }
+
+  /* Misc secondary labels */
+  .MUxGbd,
+  .OSrXXb,
+  .kb0PBd span {
+    color: var(--ow-content-muted) !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   3. ChatGPT
+   ------------------------------------------------------------ */
+
+@-moz-document domain("chatgpt.com") {
+  [class*="text-token-text-secondary"],
+  [class*="text-token-text-tertiary"],
+  [class*="text-gray-"],
+  [class*="text-zinc-"],
+  [class*="text-neutral-"] {
+    color: var(--ow-content-muted) !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--ow-content-text);
+  }
+
+  a {
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--ow-content-link) 45%,
+      transparent
+    );
+  }
+}
+
+/* ------------------------------------------------------------
+   4. GitHub
+   ------------------------------------------------------------ */
+
+@-moz-document domain("github.com") {
+  .fgColor-muted,
+  .color-fg-muted,
+  .text-small,
+  .Link--secondary {
+    color: var(--ow-content-muted) !important;
+  }
+
+  .fgColor-accent,
+  .Link--primary:hover {
+    color: var(--ow-content-link) !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   5. Reddit
+   ------------------------------------------------------------ */
+
+@-moz-document domain("reddit.com") {
+  shreddit-post [class*="text-neutral-content-weak"],
+  shreddit-comment [class*="text-neutral-content-weak"],
+  [class*="text-secondary"] {
+    color: var(--ow-content-muted) !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   6. Generic fallback
+   ------------------------------------------------------------ */
+
+/*
+ * Intentionally left empty.
+ *
+ * Avoid universal text overrides because they can destroy
+ * site-specific hierarchy and accessibility.
+ */
